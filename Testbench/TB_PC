@@ -1,0 +1,30 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity TB_PC is
+end TB_PC;
+
+architecture Behavioral of TB_PC is
+    signal A   : std_logic_vector(2 downto 0);
+    signal Res : std_logic;
+    signal Clk : std_logic := '0';
+    signal M   : std_logic_vector(2 downto 0);
+    constant clk_period : time := 10 ns;
+begin
+    UUT: entity work.PC 
+        port map (A => A, Res => Res, Clk => Clk, M => M);
+
+    Clk_process : process
+    begin
+        Clk <= '0'; wait for clk_period/2;
+        Clk <= '1'; wait for clk_period/2;
+    end process;
+
+    process
+    begin
+        Res <= '1'; A <= "001"; wait for 20 ns;
+        Res <= '0'; wait for 20 ns;
+        A <= "110"; wait for 20 ns;
+        wait;
+    end process;
+end Behavioral;
