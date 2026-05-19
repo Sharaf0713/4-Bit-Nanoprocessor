@@ -1,0 +1,26 @@
+Nano Processor – Operational Instructions
+
+1. Program Execution
+   The uploaded bitstream is configured to automatically execute the program at startup. The implemented program calculates the total of the numbers from 1 to 3. The same program execution is also triggered whenever the reset button is pressed.
+
+2. Reset Button
+   The assigned reset button initializes the processor and restarts program execution from the beginning. After reset, the processor immediately begins executing the stored instructions.
+
+3. Register Output
+   The final result of the calculation is stored in Register R7. The expected final value stored in R7 is: 1 + 2 + 3 = 6
+
+4. LED Output Mapping
+   The LED outputs are connected to the contents of Register R7. The binary representation of the final result is displayed through the onboard LEDs. Expected LED output for decimal value 6: 0110
+
+5. Seven Segment Display Mapping
+   The seven segment display is configured to display the decimal value stored in Register R7. Upon successful completion of the program, the display should show: 6
+
+6. Clock Configuration
+   A slow clock configuration has been used to ensure visible execution and stable observation of outputs during practical demonstrations and testing.
+
+7. Expected Circuit Behavior
+   • On power-up, the processor automatically begins execution.
+   • The processor sequentially executes the instructions stored in Program ROM.
+   • The calculation result is stored in R7.
+   • LEDs and seven segment display update automatically to reflect the value stored in R7.
+   • Pressing the reset button restarts the entire execution process.
